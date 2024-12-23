@@ -80,26 +80,6 @@ body {
   width: 100%;
 }
 
-/* CTA Button */
-.cta-button {
-  padding: 0.6rem 1.2rem;
-  background: #00B4D8; /* Main Accent */
-  color: #121212; /* Deep Charcoal */
-  font-family: 'IBM Plex Sans', sans-serif;
-  font-weight: 600;
-  font-size: 1.1rem;
-  text-transform: uppercase;
-  border: none;
-  border-radius: 4px;
-  cursor: pointer;
-  transition: background-color 0.3s, transform 0.3s;
-}
-
-.cta-button:hover {
-  background: #3A86FF; /* Primary Accent */
-  transform: scale(1.1);
-}
-
 /* Mobile Menu Toggle */
 .menu-toggle {
   display: none;
