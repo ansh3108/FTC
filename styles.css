@@ -20,7 +20,7 @@ body {
   font-size: 1.8rem;
   color: #D4AF37; /* Soft Gold */
   border-bottom: 1px solid #1F1F1F; /* Subtle Gray */
-  text-transform: uppercase; /* Ensure "JIVA PUBLIC SCHOOL" is capitalized */
+  text-transform: uppercase;
 }
 
 /* Navbar Styles */
@@ -75,7 +75,7 @@ body {
 }
 
 .nav-links a.active::after {
-  width: 100%; /* Underline fully visible for active page */
+  width: 100%;
 }
 
 /* Underline Effect */
@@ -130,5 +130,56 @@ body {
 
   .nav-links {
     display: none;
+  }
+}
+
+/* About Us Section */
+.about-us {
+  background-color: #1F1F1F; /* Dark background to make it stand out */
+  color: #E4E4E4; /* Warm gray text */
+  padding: 3rem 2rem;
+  border-radius: 10px;
+  margin: 2rem auto;
+  max-width: 900px; /* Limit width to prevent text from stretching too far */
+}
+
+.about-container {
+  max-width: 800px;
+  margin: 0 auto;
+}
+
+.about-us h1 {
+  text-align: center;
+  font-family: 'Exo 2', sans-serif;
+  color: #D4AF37; /* Soft Gold */
+  font-size: 2rem;
+  margin-bottom: 1.5rem;
+  font-weight: 600;
+}
+
+.about-us .intro {
+  font-family: 'Poppins', sans-serif;
+  line-height: 1.8;
+  font-size: 1.1rem;
+  text-align: justify;
+  text-justify: inter-word; /* Improve word spacing */
+}
+
+.about-us .highlight {
+  font-style: italic;
+  color: #3A86FF; /* Primary Accent color for the goal */
+}
+
+@media (max-width: 768px) {
+  .about-us {
+    padding: 2rem 1rem;
+  }
+
+  .about-us h1 {
+    font-size: 1.8rem;
+  }
+
+  .about-us .intro {
+    font-size: 1rem;
   }
 }

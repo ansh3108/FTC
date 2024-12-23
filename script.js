@@ -1,8 +1,10 @@
 document.addEventListener("DOMContentLoaded", () => {
   const links = document.querySelectorAll(".nav-links a");
   const sections = document.querySelectorAll("section");
+  const menuToggle = document.querySelector(".menu-toggle");
+  const navLinks = document.querySelector(".nav-links");
 
-  // smooth scrolling
+  // Smooth scrolling for anchor links
   links.forEach(link => {
     link.addEventListener("click", (e) => {
       e.preventDefault();
@@ -15,6 +17,7 @@ document.addEventListener("DOMContentLoaded", () => {
     });
   });
 
+  // Active link highlighting on scroll
   window.addEventListener("scroll", () => {
     const scrollPosition = window.scrollY + document.querySelector(".navbar").offsetHeight + 10;
 
@@ -29,5 +32,10 @@ document.addEventListener("DOMContentLoaded", () => {
         link.classList.add("active");
       }
     });
+  });
+
+  // Mobile menu toggle functionality
+  menuToggle.addEventListener('click', () => {
+    navLinks.classList.toggle('active');
   });
 });
