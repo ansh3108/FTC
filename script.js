@@ -1,11 +1,10 @@
 document.addEventListener('DOMContentLoaded', () => {
-    const links = document.querySelectorAll('.nav-links a');
+    const menuToggle = document.querySelector('.menu-toggle');
+    const navLinks = document.querySelector('.nav-links');
   
-    // Example: Active link highlighting
-    links.forEach(link => {
-      link.addEventListener('click', () => {
-        links.forEach(l => l.classList.remove('active'));
-        link.classList.add('active');
-      });
+    // Toggle menu visibility
+    menuToggle.addEventListener('click', () => {
+      navLinks.classList.toggle('show');
     });
-  });  
+  });
+  
