@@ -1,4 +1,3 @@
-// Add interactive effects for the navbar (optional)
 document.addEventListener('DOMContentLoaded', () => {
     const links = document.querySelectorAll('.nav-links a');
   
@@ -9,5 +8,4 @@ document.addEventListener('DOMContentLoaded', () => {
         link.classList.add('active');
       });
     });
-  });
-  
+  });  
