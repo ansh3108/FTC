@@ -5,7 +5,7 @@ document.addEventListener("DOMContentLoaded", () => {
   const navLinks = document.querySelector(".nav-links");
   const photoCards = document.querySelectorAll(".photo-card");
 
-  // Smooth scrolling for anchor links
+  // Smooth scrollin
   links.forEach(link => {
     link.addEventListener("click", (e) => {
       e.preventDefault();
@@ -18,7 +18,7 @@ document.addEventListener("DOMContentLoaded", () => {
     });
   });
 
-  // Active link highlighting on scroll
+  //  highlighting on scroll
   window.addEventListener("scroll", () => {
     const scrollPosition = window.scrollY + document.querySelector(".navbar").offsetHeight + 10;
 
