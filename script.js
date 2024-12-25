@@ -33,17 +33,19 @@ document.addEventListener("DOMContentLoaded", () => {
         link.classList.add("active");
       }
     });
-
-    // Handle photo card animation on scroll
-    photoCards.forEach(card => {
-      if (card.getBoundingClientRect().top < window.innerHeight - 50) {
-        card.classList.add("visible");
-      }
-    });
   });
 
   // Mobile menu toggle functionality
   menuToggle.addEventListener('click', () => {
     navLinks.classList.toggle('active');
+  });
+
+  // Photo card fade-in effect
+  let photoDelay = 0;
+  photoCards.forEach(card => {
+    setTimeout(() => {
+      card.classList.add('visible');
+    }, photoDelay);
+    photoDelay += 200; // Increase delay for each card
   });
 });

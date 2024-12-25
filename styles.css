@@ -137,10 +137,24 @@ body {
 .about-us {
   background-color: #1F1F1F; /* Dark background to make it stand out */
   color: #E4E4E4; /* Warm gray text */
-  padding: 3rem 2rem;
-  border-radius: 10px;
+  padding: 3rem auto;
+  text-align: center;
+  max-width: 900px;
   margin: 3rem auto;
-  max-width: 900px; /* Limit width to prevent text from stretching too far */
+  border-radius: 15px; /* Rounded corners */
+  box-shadow: 0px 6px 15px rgba(0, 0, 0, 0.3); /* Light shadow for floating effect */
+  border: 3px solid #3A86FF; /* Royal Blue border to extend and make it stand out */
+  transform: translateY(-20px);
+  animation: float 1.5s ease-in-out forwards; /* Animation runs once */
+}
+
+@keyframes float {
+  0% {
+    transform: translateY(-20px);
+  }
+  100% {
+    transform: translateY(0);
+  }
 }
 
 .about-container {
@@ -169,42 +183,58 @@ h1 {
 /* Gallery Section */
 .gallery-container {
   display: grid;
-  grid-template-columns: repeat(3, 1fr);
+  grid-template-columns: repeat(auto-fill, minmax(250px, 1fr)); /* Auto-fill columns with a minimum width */
   gap: 1.5rem;
   padding: 2rem;
   margin-top: 3rem;
 }
 
 .photo-card {
-  background-color: #1F1F1F; /* Dark background for photos */
-  border-radius: 10px;
+  background-color: #fff; /* White background for the polaroid effect */
+  border-radius: 15px; /* Rounded corners */
   overflow: hidden;
   box-shadow: 0px 6px 15px rgba(0, 0, 0, 0.4);
-  transition: transform 0.3s ease, opacity 0.3s ease;
+  transition: transform 0.3s ease, box-shadow 0.3s ease, filter 0.3s ease;
   opacity: 0;
   transform: translateY(20px); /* Slight movement from below */
+  margin-bottom: 1.5rem;
+  height: auto; /* Dynamic height */
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
 }
 
 .photo-card img {
-  width: 70%; /* Smaller size for the photos */
-  height: auto;
+  width: 100%; /* Adjust width to fit the container */
+  height: auto; /* Maintain aspect ratio */
   display: block;
   object-fit: cover;
-  margin: 0 auto;
+  transition: transform 0.3s ease, filter 0.3s ease;
+  border: 12px solid #fff; /* White border around the photo */
+  border-bottom: 20px solid #fff; /* Thicker bottom border for caption */
 }
 
-.photo-card p {
+.photo-card .caption {
+  padding: 1rem;
   text-align: center;
   font-size: 1rem;
-  padding: 0.5rem;
-  color: #E4E4E4; /* Warm gray text */
+  font-weight: 600;
+  color: #333; /* Dark text for contrast */
+  background-color: #fff; /* White background for the caption */
+  border-top: 4px solid #D4AF37; /* Soft Gold border for the caption */
+  box-sizing: border-box;
 }
 
 .photo-card:hover {
-  transform: scale(1.05); /* Slight zoom effect */
+  transform: scale(1.1) rotate(3deg); /* Added scale and rotate on hover for 3D effect */
+  box-shadow: 0px 10px 30px rgba(0, 0, 0, 0.5);
+  filter: brightness(1.2); /* Slight brightness increase */
 }
 
-/* Animating photos when scrolled into view */
+.photo-card img:hover {
+  transform: scale(1.1); /* Zoom in the image when hovered */
+}
+
 .photo-card.visible {
   opacity: 1;
   transform: translateY(0);
