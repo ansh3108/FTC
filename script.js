@@ -3,6 +3,7 @@ document.addEventListener("DOMContentLoaded", () => {
   const sections = document.querySelectorAll("section");
   const menuToggle = document.querySelector(".menu-toggle");
   const navLinks = document.querySelector(".nav-links");
+  const photoCards = document.querySelectorAll(".photo-card");
 
   // Smooth scrolling for anchor links
   links.forEach(link => {
@@ -30,6 +31,13 @@ document.addEventListener("DOMContentLoaded", () => {
       if (scrollPosition >= sectionTop && scrollPosition <= sectionTop + sectionHeight) {
         links.forEach(link => link.classList.remove("active"));
         link.classList.add("active");
+      }
+    });
+
+    // Handle photo card animation on scroll
+    photoCards.forEach(card => {
+      if (card.getBoundingClientRect().top < window.innerHeight - 50) {
+        card.classList.add("visible");
       }
     });
   });

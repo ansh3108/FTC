@@ -139,47 +139,84 @@ body {
   color: #E4E4E4; /* Warm gray text */
   padding: 3rem 2rem;
   border-radius: 10px;
-  margin: 2rem auto;
+  margin: 3rem auto;
   max-width: 900px; /* Limit width to prevent text from stretching too far */
 }
 
 .about-container {
   max-width: 800px;
   margin: 0 auto;
+  text-align: center;
 }
 
-.about-us h1 {
-  text-align: center;
-  font-family: 'Exo 2', sans-serif;
+h1 {
+  font-size: 2.5rem; /* Increase font size */
+  font-weight: 700; /* Make it bold */
   color: #D4AF37; /* Soft Gold */
-  font-size: 2rem;
-  margin-bottom: 1.5rem;
+  margin-bottom: 1rem;
+}
+
+.intro {
+  font-size: 1.2rem;
+  margin-top: 1rem;
+}
+
+.highlight {
+  color: #3A86FF; /* Royal Blue for the phrase */
   font-weight: 600;
 }
 
-.about-us .intro {
-  font-family: 'Poppins', sans-serif;
-  line-height: 1.8;
-  font-size: 1.1rem;
-  text-align: justify;
-  text-justify: inter-word; /* Improve word spacing */
+/* Gallery Section */
+.gallery-container {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 1.5rem;
+  padding: 2rem;
+  margin-top: 3rem;
 }
 
-.about-us .highlight {
-  font-style: italic;
-  color: #3A86FF; /* Primary Accent color for the goal */
+.photo-card {
+  background-color: #1F1F1F; /* Dark background for photos */
+  border-radius: 10px;
+  overflow: hidden;
+  box-shadow: 0px 6px 15px rgba(0, 0, 0, 0.4);
+  transition: transform 0.3s ease, opacity 0.3s ease;
+  opacity: 0;
+  transform: translateY(20px); /* Slight movement from below */
 }
 
-@media (max-width: 768px) {
-  .about-us {
-    padding: 2rem 1rem;
-  }
+.photo-card img {
+  width: 70%; /* Smaller size for the photos */
+  height: auto;
+  display: block;
+  object-fit: cover;
+  margin: 0 auto;
+}
 
-  .about-us h1 {
-    font-size: 1.8rem;
-  }
+.photo-card p {
+  text-align: center;
+  font-size: 1rem;
+  padding: 0.5rem;
+  color: #E4E4E4; /* Warm gray text */
+}
 
-  .about-us .intro {
-    font-size: 1rem;
+.photo-card:hover {
+  transform: scale(1.05); /* Slight zoom effect */
+}
+
+/* Animating photos when scrolled into view */
+.photo-card.visible {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+    transform: translateY(30px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
   }
 }
