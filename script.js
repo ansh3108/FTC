@@ -35,12 +35,12 @@ document.addEventListener("DOMContentLoaded", () => {
     });
   });
 
-  // Mobile menu toggle functionality
+  // Mobile menu toggle 
   menuToggle.addEventListener('click', () => {
     navLinks.classList.toggle('active');
   });
 
-  // Photo card fade-in effect
+  // fade in effect
   let photoDelay = 0;
   photoCards.forEach(card => {
     setTimeout(() => {
