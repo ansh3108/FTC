@@ -1,11 +1,18 @@
 document.addEventListener("DOMContentLoaded", () => {
+  const pdfPaths = ["/assets/assignment_1.pdf", "/assets/assignment_2.pdf"];
+  const currentPath = window.location.pathname;
+
+  if (pdfPaths.includes(currentPath)) {
+    window.location.href = currentPath; // Open the requested PDF file
+  }
+
   const links = document.querySelectorAll(".nav-links a");
   const sections = document.querySelectorAll("section");
   const menuToggle = document.querySelector(".menu-toggle");
   const navLinks = document.querySelector(".nav-links");
   const photoCards = document.querySelectorAll(".photo-card");
 
-  // Smooth scrollin
+  // Smooth scrolling
   links.forEach(link => {
     link.addEventListener("click", (e) => {
       e.preventDefault();
