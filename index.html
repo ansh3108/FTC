@@ -1,103 +1,54 @@
-<!DOCTYPE html>
-<html lang="en">
+document.addEventListener("DOMContentLoaded", () => {
+  const links = document.querySelectorAll(".nav-links a");
+  const sections = document.querySelectorAll("section");
+  const menuToggle = document.querySelector(".menu-toggle");
+  const navLinks = document.querySelector(".nav-links");
+  const photoCards = document.querySelectorAll(".photo-card");
 
+  // Smooth scrollin
+  links.forEach(link => {
+    link.addEventListener("click", (e) => {
+      e.preventDefault();
+      const targetId = link.getAttribute("href").substring(1);
+      const targetSection = document.getElementById(targetId);
+      window.scrollTo({
+        top: targetSection.offsetTop - document.querySelector(".navbar").offsetHeight,
+        behavior: "smooth",
+      });
+    });
+  });
 
-<head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <link rel="stylesheet" href="styles.css">
-  <title>FTC Outreach Website</title>
-  <link href="https://fonts.googleapis.com/css2?family=Exo+2:wght@400;600&display=swap" rel="stylesheet">
-  <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@400;600&display=swap" rel="stylesheet">
-  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600&display=swap" rel="stylesheet">
-</head>
+  // Navbar Toggle (for smaller screens)
+  menuToggle.addEventListener("click", () => {
+    navLinks.classList.toggle("active");
+  });
 
+  // Handle active class change for navbar
+  window.addEventListener("scroll", () => {
+    let currentSection = null;
+    sections.forEach((section) => {
+      if (window.scrollY >= section.offsetTop - 50) {
+        currentSection = section;
+      }
+    });
+    links.forEach(link => {
+      if (link.getAttribute("href").substring(1) === currentSection?.id) {
+        link.classList.add("active");
+      } else {
+        link.classList.remove("active");
+      }
+    });
+  });
 
-<body>
-  <header class="header">JIVA PUBLIC SCHOOL</header>
-  <nav class="navbar">
-    <ul class="nav-links">
-      <li><a href="#about" class="active">About Us</a></li>
-      <li><a href="#gallery">Gallery</a></li>
-      <li><a href="#contact">Contact Us</a></li>
-      <li><a href="#about-first">About FIRST</a></li>
-    </ul>
-    <button class="menu-toggle">☰</button>
-  </nav>
-
-
-
-  <section id="about" class="about-us">
-    <div class="about-container">
-      <h1>About Us</h1>
-      <p class="intro">A rookie team in the First Tech Challenge but holds a lot of passion to win. Our goal is to <span class="highlight">"Unleash tomorrow's technology today"</span>. Each and every member of this team is dedicated towards their work. The team is divided into several groups in order to divide the work efficiently for the best possible result.</p>
-    </div>
-  </section>
-
-
-
-  <section id="gallery">
-    <h1>Gallery</h1>
-    <div class="gallery-container">
-      <div class="photo-card">
-        <img src="assets/photo_1.jpeg" alt="Photo 1">
-        <p class="caption">Designing out take mechanism</p>
-      </div>
-      <div class="photo-card">
-        <img src="assets/photo_2.jpeg" alt="Photo 2">
-        <p class="caption">Cable management in process</p>
-      </div>
-      <div class="photo-card">
-        <img src="assets/photo_3.jpeg" alt="Photo 3">
-        <p class="caption">3D modelling of robot</p>
-      </div>
-      <div class="photo-card">
-        <img src="assets/photo_4.jpeg" alt="Photo 4">
-        <p class="caption">Caption for Photo 4</p>
-      </div>
-      <div class="photo-card">
-        <img src="assets/photo_5.jpeg" alt="Photo 5">
-        <p class="caption">Caption for Photo 5</p>
-      </div>
-      <div class="photo-card">
-        <img src="assets/photo_6.jpeg" alt="Photo 6">
-        <p class="caption">Caption for Photo 6</p>
-      </div>
-      <div class="photo-card">
-        <img src="assets/photo_7.jpeg" alt="Photo 7">
-        <p class="caption">Caption for Photo 7</p>
-      </div>
-      <div class="photo-card">
-        <img src="assets/photo_8.jpeg" alt="Photo 8">
-        <p class="caption">Caption for Photo 8</p>
-      </div>
-      <div class="photo-card">
-        <img src="assets/photo_9.jpeg" alt="Photo 9">
-        <p class="caption">Caption for Photo 9</p>
-      </div>
-      <div class="photo-card">
-        <img src="assets/photo_10.jpeg" alt="Photo 10">
-        <p class="caption">Caption for Photo 10</p>
-      </div>
-    </div>
-  </section>
-
-
-
-  <section id="contact">
-    <h1>Contact Us</h1>
-    <p>Contact information here.</p>
-    <p>TODO</p>
-  </section>
-  <section id="about-first">
-    <h1>About FIRST</h1>
-    <p>Information about FIRST.</p>
-    <p>TODO</p>
-  </section>
-
-
-  
-  <script src="script.js" defer></script>
-</body>
-</html>
-
+  // Hover effect for photo cards
+  photoCards.forEach(card => {
+    card.addEventListener("mouseenter", () => {
+      card.style.transform = "scale(1.05)";
+      card.style.boxShadow = "0px 10px 20px rgba(0, 0, 0, 0.5)";
+    });
+    card.addEventListener("mouseleave", () => {
+      card.style.transform = "scale(1)";
+      card.style.boxShadow = "0px 6px 12px rgba(0, 0, 0, 0.3)";
+    });
+  });
+});
