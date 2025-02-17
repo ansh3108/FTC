@@ -13,39 +13,42 @@ document.addEventListener("DOMContentLoaded", () => {
       const targetSection = document.getElementById(targetId);
       window.scrollTo({
         top: targetSection.offsetTop - document.querySelector(".navbar").offsetHeight,
-        behavior: "smooth"
+        behavior: "smooth",
       });
     });
   });
 
-  //  highlighting on scroll
+  // Navbar Toggle (for smaller screens)
+  menuToggle.addEventListener("click", () => {
+    navLinks.classList.toggle("active");
+  });
+
+  // Handle active class change for navbar
   window.addEventListener("scroll", () => {
-    const scrollPosition = window.scrollY + document.querySelector(".navbar").offsetHeight + 10;
-
-    sections.forEach(section => {
-      const sectionTop = section.offsetTop;
-      const sectionHeight = section.offsetHeight;
-      const id = section.getAttribute("id");
-      const link = document.querySelector(`.nav-links a[href="#${id}"]`);
-
-      if (scrollPosition >= sectionTop && scrollPosition <= sectionTop + sectionHeight) {
-        links.forEach(link => link.classList.remove("active"));
+    let currentSection = null;
+    sections.forEach((section) => {
+      if (window.scrollY >= section.offsetTop - 50) {
+        currentSection = section;
+      }
+    });
+    links.forEach(link => {
+      if (link.getAttribute("href").substring(1) === currentSection?.id) {
         link.classList.add("active");
+      } else {
+        link.classList.remove("active");
       }
     });
   });
 
-  // Mobile menu toggle 
-  menuToggle.addEventListener('click', () => {
-    navLinks.classList.toggle('active');
-  });
-
-  // fade in effect
-  let photoDelay = 0;
+  // Hover effect for photo cards
   photoCards.forEach(card => {
-    setTimeout(() => {
-      card.classList.add('visible');
-    }, photoDelay);
-    photoDelay += 200; // Increase delay for each card
+    card.addEventListener("mouseenter", () => {
+      card.style.transform = "scale(1.05)";
+      card.style.boxShadow = "0px 10px 20px rgba(0, 0, 0, 0.5)";
+    });
+    card.addEventListener("mouseleave", () => {
+      card.style.transform = "scale(1)";
+      card.style.boxShadow = "0px 6px 12px rgba(0, 0, 0, 0.3)";
+    });
   });
 });
