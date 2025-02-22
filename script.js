@@ -1,4 +1,5 @@
 
+
 document.addEventListener("DOMContentLoaded", () => {
   const pdfPaths = ["/assets/assignment_1.pdf", "/assets/assignment_2.pdf"];
   const currentPath = window.location.pathname;
